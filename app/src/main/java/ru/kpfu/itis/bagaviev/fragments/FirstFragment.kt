@@ -30,25 +30,20 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
 
         viewBinding?.run {
             btnToThirdFragment.setOnClickListener {
-
                 val message = etMessage.text.toString()
-
-                activity.navigateTo(
-                    ActionType.REPLACE,
-                    SecondFragment.newInstance(
-                        SimpleMessageUtil.MESSAGE_KEY,
-                        message
-                ), true)
-
-                activity.navigateTo(
-                    ActionType.REPLACE,
-                    ThirdFragment.newInstance(
-                        SimpleMessageUtil.MESSAGE_KEY,
-                        message),
-                    true)
-
+                activity.doTransaction(ActionType.REPLACE, activity.fragmentContainerId,
+                    SecondFragment.newInstance(SimpleMessageUtil.MESSAGE_KEY, message), true)
+                activity.doTransaction(ActionType.REPLACE, activity.fragmentContainerId,
+                    ThirdFragment.newInstance(SimpleMessageUtil.MESSAGE_KEY, message), true)
+            }
+            btnSave?.setOnClickListener {
+                val message = etMessage.text.toString()
+                etMessage.text.clear()
+                activity.doTransaction(ActionType.REPLACE, activity.additionalFragmentContainerId,
+                    FourthFragment.newInstance(SimpleMessageUtil.MESSAGE_KEY, message), false)
             }
         }
+
 
     }
 

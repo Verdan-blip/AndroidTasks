@@ -27,34 +27,37 @@ class SecondFragment : Fragment(R.layout.fragment_second) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewBinding?.apply {
-            var message = arguments?.getString(SimpleMessageUtil.MESSAGE_KEY)
-            if (message.isNullOrEmpty())
-                message = getString(R.string.second_fragment_default_text)
-            tvSecondScreen.text = message
-        }
-
         val activity = requireActivity() as MainActivity
 
         viewBinding?.apply {
+
+            val message = arguments?.getString(SimpleMessageUtil.MESSAGE_KEY)
+
+            if (message.isNullOrEmpty()) {
+                tvSecondScreen.text = getString(R.string.second_fragment_default_text)
+            } else {
+                tvSecondScreen.text = message
+            }
+
             btnToFirstFragment.setOnClickListener {
                 parentFragmentManager.popBackStack()
-                activity.navigateTo(
+                activity.doTransaction(
                     ActionType.REMOVE,
+                    activity.fragmentContainerId,
                     this@SecondFragment,
                     false)
             }
+
             btnToThirdFragment.setOnClickListener {
                 parentFragmentManager.popBackStack()
-                activity.navigateTo(
+                activity.doTransaction(
                     ActionType.REPLACE,
-                    ThirdFragment.newInstance(
-                        SimpleMessageUtil.MESSAGE_KEY,
-                        tvSecondScreen.text.toString()
-                    ),
+                    activity.fragmentContainerId,
+                    ThirdFragment.newInstance(SimpleMessageUtil.MESSAGE_KEY, message ?: ""),
                     true
                 )
             }
+
         }
 
     }

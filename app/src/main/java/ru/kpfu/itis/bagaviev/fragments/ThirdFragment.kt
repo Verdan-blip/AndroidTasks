@@ -26,11 +26,12 @@ class ThirdFragment : Fragment(R.layout.fragment_third) {
         super.onViewCreated(view, savedInstanceState)
 
         viewBinding?.apply {
-            var text = arguments?.getString(SimpleMessageUtil.MESSAGE_KEY)
+            val text = arguments?.getString(SimpleMessageUtil.MESSAGE_KEY)
             if (text.isNullOrEmpty()) {
-                text = getString(R.string.third_fragment_default_text)
+                tvThirdScreen.text = getString(R.string.third_fragment_default_text)
+            } else {
+                tvThirdScreen.text = text
             }
-            tvThirdScreen.text = text
         }
     }
 
