@@ -40,7 +40,11 @@ class QuestionnaireFragment : Fragment(R.layout.fragment_questionnaire) {
         }
 
         val viewPager2 = requireActivity().findViewById<ViewPager2>(R.id.vp2_questionnaire)
-        val questionnaireAdapter = QuestionnaireAdapter(parentFragmentManager, lifecycle, questionsWithFakes)
+        val questionnaireAdapter = QuestionnaireAdapter(questions = questionsWithFakes, onQuestionnaireCompleted = {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fv_container, StartFragment())
+                .commit()
+        })
         viewPager2.adapter = questionnaireAdapter
         viewPager2.registerOnPageChangeCallback(OnQuestionPageChangeCallback(viewPager2))
     }

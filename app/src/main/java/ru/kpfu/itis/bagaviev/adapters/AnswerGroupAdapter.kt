@@ -8,11 +8,7 @@ import ru.kpfu.itis.bagaviev.model.AnswerGroup
 
 class AnswerGroupAdapter(
     private val answerGroup: AnswerGroup,
-    private val onRadioButtonChecked: (
-        adapter: AnswerGroupAdapter,
-        viewHolder: AnswerViewHolder,
-        answerGroup: AnswerGroup,
-    ) -> Unit
+    private val onRadioButtonChecked: () -> Unit
 ) : RecyclerView.Adapter<AnswerGroupAdapter.AnswerViewHolder>() {
 
     //Используется во избежании проблем с использованием notifyItemChanged до биндинга вьюшки
@@ -37,12 +33,11 @@ class AnswerGroupAdapter(
         init {
             viewBinding.apply {
                 rbItemAnswer.setOnCheckedChangeListener { _, isChecked ->
-                    if (isChecked && viewHolderBinded) {
-                        onRadioButtonChecked(
-                            this@AnswerGroupAdapter,
-                            this@AnswerViewHolder,
-                            answerGroup
-                        )
+                    if (viewHolderBinded && isChecked) {
+                        notifyItemChanged(answerGroup.selectedAnswerIndex)
+                        answerGroup.selectedAnswerIndex = adapterPosition
+                        notifyItemChanged(adapterPosition)
+                        onRadioButtonChecked()
                     }
                 }
             }
