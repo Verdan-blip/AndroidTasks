@@ -37,7 +37,7 @@ class StartFragment : Fragment(R.layout.fragment_start) {
                         ActionType.REPLACE,
                         R.id.fv_container,
                         NewsFeedFragment.newInstance(etNewsCount.text.toString().toInt()),
-                        true
+                        false
                     )
             }
         }

@@ -30,9 +30,10 @@ class NewsFeedFragment : Fragment(R.layout.fragment_news) {
     private var bottomSheetFragment: NewsAddBottomSheetFragment? = null
 
     private var newsItemList: MutableList<NewsListItem>? = null
+    private var newsItemListRealSize: Int? = null
 
     private fun defineLayoutManager(newsItemList: MutableList<NewsListItem>) : LayoutManager {
-        val realSize = newsItemList.count { it.getType() == NewsItemType.NEWS_FEED_ITEM }
+        val realSize = newsItemListRealSize ?: 0
         if (realSize <= 12) {
             return LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         } else {
@@ -87,13 +88,13 @@ class NewsFeedFragment : Fragment(R.layout.fragment_news) {
 
         arguments?.apply {
             if (newsItemList == null) {
+                newsItemListRealSize = getInt(NEWS_COUNT_KEY)
                 newsItemList = NewsFeedHandler.structurize(
                     NewsFeedHandler.take(
                         NewsFeedRepository.getAll(),
-                        getInt(NEWS_COUNT_KEY)
+                        newsItemListRealSize!!
                     )
                 )
-                viewBinding?.rvNews?.layoutManager = defineLayoutManager(newsItemList!!)
             }
         }
 
@@ -107,6 +108,7 @@ class NewsFeedFragment : Fragment(R.layout.fragment_news) {
 
             viewBinding?.apply {
                 rvNews.adapter = newsFeedAdapter
+                viewBinding?.rvNews?.layoutManager = defineLayoutManager(newsItemList)
                 with (resources) {
                     rvNews.addItemDecoration(DividerItemDecoration(Rect(
                         8.getValueInPx(displayMetrics),
