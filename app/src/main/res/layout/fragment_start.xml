@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/et_news_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Укажите количество новостей"
+        android:inputType="number"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+    <Button
+        android:id="@+id/btn_show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Показать новости"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="32dp"/>
+
+</FrameLayout>
