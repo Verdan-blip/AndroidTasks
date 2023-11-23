@@ -1,6 +1,61 @@
 <resources>
     <string name="app_name">AndroidTasks</string>
+
+    <!-- Bottom navigation view -->
     <string name="bnv_main">Main</string>
     <string name="bnv_notifications">Notifications</string>
     <string name="bnv_coroutines">Coroutines</string>
+
+    <!-- Dialog info when permission to notifications is not granted forever -->
+
+    <!-- Dialog info when permission to notifications is not granted forever -->
+    <string name="notifications_after_permission_denied_dialog_title">Вы точно уверены?</string>
+    <string name="notifications_after_permission_denied_dialog_message">Без разрешения на уведомления приложение будет работать некорректно. Пожалуйста, перейдите в Настройки и разрешите приложению отправлять уведомления.</string>
+    <string name="notifications_after_permission_denied_dialog_button_text">Перейти в настройки</string>
+
+    <!-- Dialog info when permission to notifications is denied forever forever -->
+    <string name="notifications_after_permission_denied_forever_dialog_title">Внимание</string>
+    <string name="notifications_after_permission_denied_forever_dialog_message">Это разрешение нужно будет для того, чтобы создавать напоминания в шторке уведомлений</string>
+    <string name="notifications_after_permission_denied_forever_dialog_button_text">Хорошо</string>
+
+    <!-- Reminder notifications channel -->
+    <string name="reminder_notification_channel_id">remindersNotificationsChannelId</string>
+    <string name="reminder_notification_channel_name">Напоминания</string>
+
+    <!-- Coroutines notification channel -->
+    <string name="coroutines_notification_channel_id">coroutinesNotificationsChannelId</string>
+    <string name="coroutines_notification_channel_name">Корутины</string>
+
+    <string name="coroutines_notification_title">Успех!</string>
+    <string name="coroutines_notification_text">Я всю свою работу сделал. Ну как там с деньгами?</string>
+
+    <!-- Reminder fragment strings -->
+    <string name="text_create_reminder">Создать напоминание</string>
+    <string name="text_reminder_text">Придумайте какое-либо сообщение</string>
+    <string name="text_reminder_date">Выберите какой-либо день</string>
+
+    <!-- Notifications fragment settings -->
+    <string name="text_notifications_settings">Настройки уведомлений</string>
+    <string name="text_set_importance">Настроить важность</string>
+    <string name="text_importance_max">Высокая</string>
+    <string name="text_importance_default">Обычная</string>
+    <string name="text_importance_low">Средняя</string>
+    <string name="text_importance_min">Слабая</string>
+    <string name="text_set_visibility">Настроить видимость</string>
+    <string name="text_visibility_secret">Скрытое (Скрывает при заблокированном экране)</string>
+    <string name="text_visibility_public">Публичное (Показывает полное содержимое)</string>
+    <string name="text_visibility_private">Приватное (показывает значок уведомления и заголовок его содержимого, но скрывает полное содержимое)</string>
+    <string name="text_show_full_text">Показать текст уведомлений полностью</string>
+    <string name="text_show_control_buttons">Показать кнопки управления</string>
+
+    <!-- Toast -->
+    <string name="toast_text_welcome">Добро пожаловать! Рады видеть вас снова</string>
+
+    <!-- Coroutines fragment settings -->
+    <string name="text_coroutines_settings">Настройки корутин</string>
+    <string name="text_coroutines_count">Введите количество запускаемых корутин</string>
+    <string name="text_coroutines_async">Асинхронно</string>
+    <string name="text_coroutines_stop_in_background">Останавливать при выходе</string>
+    <string name="text_coroutines_run">Выполнить</string>
+
 </resources>

@@ -6,7 +6,102 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Notifications" />
+        android:layout_gravity="center|top"
+        android:layout_marginTop="16dp"
+        android:text="@string/text_notifications_settings"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/text_set_importance"
+            android:textSize="18sp"/>
+
+        <RadioGroup
+            android:id="@+id/rg_importance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_max_importance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_importance_max" />
+
+            <RadioButton
+                android:id="@+id/rb_default_importance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_importance_default" />
+
+            <RadioButton
+                android:id="@+id/rb_low_importance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_importance_low" />
+
+            <RadioButton
+                android:id="@+id/rb_min_importance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_importance_min" />
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="@string/text_set_visibility"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/rg_visibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rb_visibility_secret"
+                android:layout_width="324dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_visibility_secret" />
+
+            <RadioButton
+                android:id="@+id/rb_visibility_public"
+                android:layout_width="324dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_visibility_public" />
+
+            <RadioButton
+                android:id="@+id/rb_visibility_private"
+                android:layout_width="324dp"
+                android:layout_height="wrap_content"
+                android:text="@string/text_visibility_private" />
+
+        </RadioGroup>
+
+        <CheckBox
+            android:id="@+id/cb_show_text_fully"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_show_full_text" />
+
+        <CheckBox
+            android:id="@+id/cb_show_control_buttons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_show_control_buttons" />
+
+    </LinearLayout>
 
 </FrameLayout>
