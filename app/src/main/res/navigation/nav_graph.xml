@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+
+    <fragment
+        android:id="@+id/coroutinesFragment"
+        android:name="ru.kpfu.itis.bagaviev.fragments.CoroutinesFragment"
+        tools:layout="@layout/fragment_coroutines"
+        android:label="CoroutinesFragment" >
+        <action
+            android:id="@+id/action_coroutinesFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_coroutinesFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="ru.kpfu.itis.bagaviev.fragments.MainFragment"
+        tools:layout="@layout/fragment_main"
+        android:label="MainFragment" >
+        <action
+            android:id="@+id/action_mainFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_coroutinesFragment"
+            app:destination="@id/coroutinesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="ru.kpfu.itis.bagaviev.fragments.NotificationsFragment"
+        tools:layout="@layout/fragment_notifications"
+        android:label="NotificationsFragment" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_mainFragment2"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_notificationsFragment_self"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+</navigation>
