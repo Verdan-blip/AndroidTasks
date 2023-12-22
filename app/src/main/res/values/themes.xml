@@ -6,4 +6,5 @@
     </style>
 
     <style name="Theme.AndroidTasks" parent="Base.Theme.AndroidTasks" />
+
 </resources>
