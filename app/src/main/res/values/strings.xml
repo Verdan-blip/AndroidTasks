@@ -1,3 +1,23 @@
 <resources>
+
     <string name="app_name">AndroidTasks</string>
+    <string name="welcome">Добро пожаловать!</string>
+    <string name="sign_in">Авторизоваться</string>
+    <string name="sign_up">Зарегистрироваться</string>
+    <string name="email">Электронная почта</string>
+    <string name="password">Пароль</string>
+    <string name="log_in">Войти</string>
+    <string name="user_name">Имя</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="films">Фильмы</string>
+    <string name="add_film">Добавить</string>
+    <string name="profile">Профиль</string>
+
+    <!-- Add film fragment -->
+    <string name="add_film_add">Добавить</string>
+    <string name="add_film_enter_short_description">Введите краткое описание</string>
+    <string name="add_film_enter_release_date">Введите год выпуска</string>
+    <string name="add_film_enter_film_title">Введите название фильма</string>
+    <string name="add_film_add_film">Добавить фильм</string>
+
 </resources>
